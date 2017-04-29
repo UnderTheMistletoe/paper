@@ -1,7 +1,7 @@
-[1]Neto P. Demystifying cloud computing[C]. Proceeding of Doctoral Symposium on Informatics Engineering. 2011.
-[2]Íõ¹â²¨.ÔÆ¼ÆËã»·¾³ÏÂĞéÄâ»úÇ¨ÒÆ»úÖÆÑĞ¾¿[D].½â·Å¾üĞÅÏ¢¹¤³Ì´óÑ§,2013.
-[3]ÁºĞÂÁú.ÔÆ¼ÆËã»·¾³ÏÂÊı¾İ°²È«´æ´¢¼°ĞéÄâ»ú°²È«Ç¨ÒÆ»úÖÆÑĞ¾¿[D].¶«ÄÏ´óÑ§,2015.
+ï»¿[1]Neto P. Demystifying cloud computing[C]. Proceeding of Doctoral Symposium on Informatics Engineering. 2011.
+[2]ç‹å…‰æ³¢.äº‘è®¡ç®—ç¯å¢ƒä¸‹è™šæ‹Ÿæœºè¿ç§»æœºåˆ¶ç ”ç©¶[D].è§£æ”¾å†›ä¿¡æ¯å·¥ç¨‹å¤§å­¦,2013.
+[3]æ¢æ–°é¾™.äº‘è®¡ç®—ç¯å¢ƒä¸‹æ•°æ®å®‰å…¨å­˜å‚¨åŠè™šæ‹Ÿæœºå®‰å…¨è¿ç§»æœºåˆ¶ç ”ç©¶[D].ä¸œå—å¤§å­¦,2015.
 [4]Divyambika R, Umamakeswari A. Protection of virtual machines during live migration in cloud environment[J]. Indian Journal of Science and Technology, 2015, 8(S9): 333-339.
-[5]ËïËÉ¶ù, ÂÀÕñ·å. ĞéÄâ»ú°²È«²ßÂÔµÄÇ¨ÒÆ·½·¨¼°×°ÖÃ [P]. ÖĞ¹ú: CN 102739645 B,2016Äê3ÔÂ16ÈÕ.
+[5]å­™æ¾å„¿, å•æŒ¯å³°. è™šæ‹Ÿæœºå®‰å…¨ç­–ç•¥çš„è¿ç§»æ–¹æ³•åŠè£…ç½® [P]. ä¸­å›½: CN 102739645 B,2016å¹´3æœˆ16æ—¥.
 [6]Clark C, Fraser K, Hand S, et al. Live migration of virtual machines[C]. Proceedings of the 2nd Conference on Symposium on Networked Systems Design & Implementation-Volume 2. USENIX Association, 2005: 273-286.
 [7]Weil S A, Brandt S A, Miller E L, et al. Ceph: A scalable, high-performance distributed file system[C]. Proceedings of the 7th symposium on Operating systems design and implementation. USENIX Association, 2006: 307-320.
