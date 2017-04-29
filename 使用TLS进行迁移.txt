@@ -1,0 +1,4 @@
+步骤按照wiki
+1.	https://wiki.libvirt.org/page/TLSSetup
+2.	设置对证书和私钥的权限为440	group为libvirt-qemu
+3.	设置nova中的live_migration_uri=qemu+tls...   ...etc

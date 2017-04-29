@@ -1,0 +1,7 @@
+[1]Neto P. Demystifying cloud computing[C]. Proceeding of Doctoral Symposium on Informatics Engineering. 2011.
+[2]王光波.云计算环境下虚拟机迁移机制研究[D].解放军信息工程大学,2013.
+[3]梁新龙.云计算环境下数据安全存储及虚拟机安全迁移机制研究[D].东南大学,2015.
+[4]Divyambika R, Umamakeswari A. Protection of virtual machines during live migration in cloud environment[J]. Indian Journal of Science and Technology, 2015, 8(S9): 333-339.
+[5]孙松儿, 吕振峰. 虚拟机安全策略的迁移方法及装置 [P]. 中国: CN 102739645 B,2016年3月16日.
+[6]Clark C, Fraser K, Hand S, et al. Live migration of virtual machines[C]. Proceedings of the 2nd Conference on Symposium on Networked Systems Design & Implementation-Volume 2. USENIX Association, 2005: 273-286.
+[7]Weil S A, Brandt S A, Miller E L, et al. Ceph: A scalable, high-performance distributed file system[C]. Proceedings of the 7th symposium on Operating systems design and implementation. USENIX Association, 2006: 307-320.

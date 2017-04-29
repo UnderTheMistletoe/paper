@@ -1,0 +1,9 @@
+手工启动OSD：由于OSD盘没有挂载，所以使用ceph-deploy activate命令激活OSD
+手工启动ib0，并配置相应ip
+手工启动mysql
+手工启动memcached
+检查Nova服务状态
+检查Cinder服务状态
+检查Neutron服务状态
+使用硬重启可以恢复实例通信的虚拟网卡
+
