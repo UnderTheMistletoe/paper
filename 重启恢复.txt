@@ -7,3 +7,15 @@
 检查Neutron服务状态
 使用硬重启可以恢复实例通信的虚拟网卡
 
+ceph-deploy osd activate blade11:/dev/sda4 blade11:/dev/sdb2 \
+blade12:/dev/sda3 blade12:/dev/sdb3 \
+blade15:/dev/sda3 blade15:/dev/sdb3 \
+blade16:/dev/sda3 blade16:/dev/sdb3
+
+sudo service opensm start
+sudo service mysql start
+sudo service memcached start
+
+sudo service libvirtd start
+sudo service nova-compute start
+sudo service neutron-linuxbridge-agent restart
