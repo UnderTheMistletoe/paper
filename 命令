@@ -1,0 +1,15 @@
+#http://tracker.ceph.com/projects/ceph/wiki/Benchmark_Ceph_Cluster_Performance
+
+#本地磁盘性能
+dd if=/dev/zero of=here bs=1G count=1 oflag=direct
+blade11:1073741824 bytes (1.1 GB, 1.0 GiB) copied, 4.41021 s, 243 MB/s
+blade12:1073741824 bytes (1.1 GB, 1.0 GiB) copied, 4.37898 s, 245 MB/s
+blade15:1073741824 bytes (1.1 GB, 1.0 GiB) copied, 4.38102 s, 245 MB/s
+blade16:1073741824 bytes (1.1 GB, 1.0 GiB) copied, 4.43283 s, 242 MB/s
+
+#作为iperf的服务端进行网络吞吐率测试
+blade11:iperf3 -B 10.0.22.1 -s   
+          Interval         Transfer     Bandwidth       Retransmmit
+blade12:  0.00-10.00  sec  5.11 GBytes  4.39 Gbits/sec  12509
+blade15:  0.00-10.00  sec  5.41 GBytes  4.64 Gbits/sec  13650
+blade16:  0.00-10.00  sec  5.46 GBytes  4.69 Gbits/sec  13355
