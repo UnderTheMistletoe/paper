@@ -1,0 +1,122 @@
+#http://tracker.ceph.com/projects/ceph/wiki/Benchmark_Ceph_Cluster_Performance
+
+#本地磁盘性能
+#dd if=/dev/zero of=here bs=1G count=1 oflag=direct
+#blade11:1073741824 bytes (1.1 GB, 1.0 GiB) copied, 4.41021 s, 243 MB/s
+#blade12:1073741824 bytes (1.1 GB, 1.0 GiB) copied, 4.37898 s, 245 MB/s
+#blade15:1073741824 bytes (1.1 GB, 1.0 GiB) copied, 4.38102 s, 245 MB/s
+#blade16:1073741824 bytes (1.1 GB, 1.0 GiB) copied, 4.43283 s, 242 MB/s
+#dd不适合做统计分析图
+
+
+#作为iperf的服务端进行网络吞吐率测试
+#blade11:iperf3 -B 10.0.22.1 -s   
+          Interval         Transfer     Bandwidth       Retransmmit
+blade12:  0.00-10.00  sec  5.11 GBytes  4.39 Gbits/sec  12509
+blade15:  0.00-10.00  sec  5.41 GBytes  4.64 Gbits/sec  13650
+blade16:  0.00-10.00  sec  5.46 GBytes  4.69 Gbits/sec  13355
+
+[  4] local 10.0.22.5 port 59686 connected to 10.0.22.1 port 5201
+[ ID] Interval           Transfer     Bandwidth       Retr  Cwnd
+[  4]   0.00-1.00   sec   796 MBytes  6.68 Gbits/sec  2282    101 KBytes       
+[  4]   1.00-2.00   sec   576 MBytes  4.83 Gbits/sec  1424    121 KBytes       
+[  4]   2.00-3.00   sec   880 MBytes  7.38 Gbits/sec  2084    138 KBytes       
+[  4]   3.00-4.00   sec   463 MBytes  3.89 Gbits/sec  1445    136 KBytes       
+[  4]   4.00-5.00   sec   757 MBytes  6.35 Gbits/sec  1887   54.5 KBytes       
+[  4]   5.00-6.00   sec   409 MBytes  3.43 Gbits/sec  986   73.9 KBytes       
+[  4]   6.00-7.00   sec   484 MBytes  4.06 Gbits/sec  1156   87.5 KBytes       
+[  4]   7.00-8.00   sec   448 MBytes  3.76 Gbits/sec  1055   70.0 KBytes       
+[  4]   8.00-9.00   sec   318 MBytes  2.67 Gbits/sec  680    101 KBytes       
+[  4]   9.00-10.00  sec   808 MBytes  6.78 Gbits/sec  1894    103 KBytes       
+- - - - - - - - - - - - - - - - - - - - - - - - -
+[ ID] Interval           Transfer     Bandwidth       Retr
+[  4]   0.00-10.00  sec  5.80 GBytes  4.98 Gbits/sec  14893             sender
+[  4]   0.00-10.00  sec  5.80 GBytes  4.98 Gbits/sec                  receiver
+
+
+#测试十秒钟写入数据，最后并不清除
+#rados bench -p scbench 10 write --no-cleanup
+Maintaining 16 concurrent writes of 4194304 bytes to objects of size 4194304 for up to 10 seconds or 0 objects
+Object prefix: benchmark_data_blade11_5556
+  sec Cur ops   started  finished  avg MB/s  cur MB/s last lat(s)  avg lat(s)
+    0       0         0         0         0         0           -           0
+    1      16        70        54   215.996       216   0.0990567    0.204799
+    2      16       111        95   189.986       164   0.0748881    0.289873
+    3      16       154       138   183.982       172    0.344343    0.308997
+    4      16       193       177   176.981       156   0.0943435    0.337664
+    5      16       237       221    176.78       176    0.241153    0.338054
+    6      16       280       264    175.98       172    0.204378    0.342381
+    7      16       318       302   172.551       152     1.36461    0.353906
+    8      16       360       344    171.98       168    0.230349    0.352044
+    9      16       400       384   170.646       160    0.319551    0.355483
+   10      16       436       420   167.979       144   0.0485687    0.363505
+Total time run:         10.478432
+Total writes made:      437
+Write size:             4194304
+Object size:            4194304
+Bandwidth (MB/sec):     166.819
+Stddev Bandwidth:       19.5959
+Max bandwidth (MB/sec): 216
+Min bandwidth (MB/sec): 144
+Average IOPS:           41
+Stddev IOPS:            4
+Max IOPS:               54
+Min IOPS:               36
+Average Latency(s):     0.380621
+Stddev Latency(s):      0.339347
+Max latency(s):         1.54522
+Min latency(s):         0.0446122
+
+#测试十秒钟顺序读取数据
+rados bench -p scbench 10 seq
+  sec Cur ops   started  finished  avg MB/s  cur MB/s last lat(s)  avg lat(s)
+    0       0         0         0         0         0           -           0
+    1      15        78        63   251.676       252  0.00993518    0.192961
+    2      16       121       105   209.849       168     0.22248    0.260245
+    3      16       157       141   187.901       144    0.769504     0.29385
+    4      16       201       185   184.918       176    0.418368    0.313736
+    5      16       244       228    182.33       172   0.0121228    0.323514
+    6      16       285       269    179.27       164   0.0101678    0.333294
+    7      16       323       307   175.371       152      1.4433    0.342848
+    8      16       366       350   174.946       172   0.0099609    0.343846
+    9      16       407       391   173.727       164      1.1485    0.350066
+   10      16       437       421   168.352       120  0.00733047    0.356168
+Total time run:       10.433467
+Total reads made:     437
+Read size:            4194304
+Object size:          4194304
+Bandwidth (MB/sec):   167.538
+Average IOPS          41
+Stddev IOPS:          8
+Max IOPS:             63
+Min IOPS:             30
+Average Latency(s):   0.37953
+Max latency(s):       1.7546
+Min latency(s):       0.00635819
+
+#测试十秒钟随机读取数据
+  sec Cur ops   started  finished  avg MB/s  cur MB/s last lat(s)  avg lat(s)
+    0       0         0         0         0         0           -           0
+    1      16        69        53   211.927       212  0.00958986    0.198283
+    2      16       101        85    169.96       128  0.00916938    0.309542
+    3      16       143       127   169.298       168     1.04017    0.333434
+    4      16       186       170   169.968       172    0.193052    0.330181
+    5      16       227       211   168.769       164    0.410627    0.346459
+    6      16       263       247   164.638       144    0.881064     0.35786
+    7      16       310       294   167.971       188  0.00851213    0.358407
+    8      16       349       333   166.472       156    0.516643    0.359002
+    9      16       391       375    166.64       168     1.28991    0.359915
+   10      16       427       411   164.374       144     0.40225    0.370991
+Total time run:       10.533430
+Total reads made:     428
+Read size:            4194304
+Object size:          4194304
+Bandwidth (MB/sec):   162.53
+Average IOPS:         40
+Stddev IOPS:          5
+Max IOPS:             53
+Min IOPS:             32
+Average Latency(s):   0.390127
+Max latency(s):       1.79872
+Min latency(s):       0.00644539
+
